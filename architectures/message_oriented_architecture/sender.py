@@ -1,5 +1,4 @@
 import pika
-import time
 
 # Estabilish a connection with RabbitMQ
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
