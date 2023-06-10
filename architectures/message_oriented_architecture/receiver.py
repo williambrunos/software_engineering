@@ -1,8 +1,16 @@
 from modules.message_queue import MessageQueue
+import base64
+
+def decode_base64_message(base64_message):
+    decoded_bytes = base64.b64decode(base64_message)
+    decoded_message = decoded_bytes.decode('utf-8')
+    return decoded_message
 
 # Callback function to handle receeived messages
 def callback(chanel, method, properties, body):
-    print(f'Received: {body.decode()}')
+    base64_string_received = body.decode('utf-8')  
+    decoded_message = decode_base64_message(base64_string_received)
+    print(f'Received: {decoded_message}')
 
 def main():
     message_queue = MessageQueue()
