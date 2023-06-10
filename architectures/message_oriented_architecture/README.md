@@ -43,6 +43,10 @@ In case you are installing RabbitMQ using chocolatey, you'll have to install cho
 
 ```Bash
 |- message_oriented_architecture
+|  |- modules
+|  |  |- __init__.py
+|  |  |- message_queue.py
+|  |  |- README.md
 |  |- receiver.py
 |  |- sender.py
 ```

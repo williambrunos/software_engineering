@@ -1,0 +1,9 @@
+{
+    "nome": "William Bruno",
+    "tipoPessoa": "pessoa fisica",
+    "emprestimo": 1500.00,
+    "informacoesCredor": {
+        "razaoSocialCredor": "nome banco exemplo",
+        "cnpjCredor": 12345678910
+    }
+}

@@ -1,15 +1,23 @@
-import pika
+from modules.message_queue import MessageQueue
 
-# Estabilish a connection with RabbitMQ
-connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
-channel = connection.channel()
+def main():
+    # Creating a MessageQueue class
+    message_queue = MessageQueue()
+    
+    # Estabilish a connection with RabbitMQ
+    message_queue.estabilish_rabbitmq_connection(host='localhost')
+    message_queue.create_rabbitmq_channel()
 
-# Create a message queue
-channel.queue_declare(queue='example_queue')
+    # Create a message queue
+    queue_name='example_queue'
+    message_queue.create_rabbitmq_queue(queue_name=queue_name)
 
-# Send a message
-channel.basic_publish(exchange='', routing_key='example_queue', body='hello world!')
+    # Send a message
+    message_queue.send_message(exchange='', routing_key='example_queue', body='hello world!')
 
-
-# Close the connection
-channel.close()
+    # Close the connection
+    message_queue.close_channel()
+    
+    
+if __name__ == "__main__":
+    main()
