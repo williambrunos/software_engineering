@@ -27,7 +27,7 @@ def main():
     message_queue.setup_consuming_configs(queue='example_queue', call_back_function=callback, auto_ack=True)
 
     # Continuously listen for messages
-    print('Waiting for messages. To exit press CTRL+C')
+    print('Aguardando mensagens. Para sair, tecle CTRL+C')
     try:
         message_queue.start_consuming()
     except KeyboardInterrupt:

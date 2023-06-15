@@ -29,9 +29,11 @@ def main():
     
     # Encoding the string to base64 message
     base64_data = encode_string_to_base64(string=string_data, encoding='utf-8')
+    print(base64_data, type(base64_data))
     
     # Send a message
     message_queue.send_message(exchange='', routing_key='example_queue', body=base64_data)
+    print('mensagem enviada!')
 
     # Close the connection
     message_queue.close_channel()
